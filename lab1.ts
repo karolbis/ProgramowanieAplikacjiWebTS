@@ -31,6 +31,12 @@ this.InputMAX = document.querySelector('#max');
 
 }
 
+watchInputValues() {
+  this.data1Input.addEventListener('input',() => this.computeData());
+  this.data2Input.addEventListener('input',() => this.computeData());
+  this.data3Input.addEventListener('input',() => this.computeData());
+  this.data4Input.addEventListener('input',() => this.computeData());
+}
 //DeleteField() {}
 
 //
