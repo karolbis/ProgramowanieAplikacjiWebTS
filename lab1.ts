@@ -1,42 +1,48 @@
-class AppControl {
-  InputData1: HTMLInputElement;
-  InputData2: HTMLInputElement;
-  InputData3: HTMLInputElement;
-  InputData4: HTMLInputElement;
-
-  InputSUM:  HTMLInputElement;
-  InputAVG:  HTMLInputElement;
-  InputMIN:  HTMLInputElement;
-  InputMAX:  HTMLInputElement;
-  constructor() {
-      this.start();
-  }
-
-start(){
-    this.FilledData();
- }
+export class InputWatcher {
+    constructor(inputs) {
+        this.inputs = [...inputs];
+        this.attachEventListeners();
+        this.getResultElements();
+        console.log(this);
+    }
+    getResultElements() {
+        const results = [
+            ...document.querySelector('.resultsContainer')
+                ?.children,
+        ].map((el) => ({ name: el.className, element: el }));
+        this.results = Object.values(results);
+    }
+    attachEventListeners() {
+        this.inputs.forEach((element) => element.addEventListener('input', () => this.calculateValues()));
+    }
+    calculateValues() {
+        const nodeValues = [
+            ...this.inputs,
+        ].map(({ value }) => (value ? +value : 0));
+        const sum = nodeValues.reduce((acc, value) => (acc += value));
+        const average = sum / this.inputs.length;
+        const min = Math.min(...nodeValues);
+        const max = Math.max(...nodeValues);
+        this.insertValues(sum, average, min, max);
+    }
+    insertValues(sum, average, min, max) {
+        this.results.forEach((el) => {
+            switch (el.name) {
+                case 'sum':
+                    el.element.textContent = sum.toString();
+                    break;
+                case 'average':
+                    el.element.textContent = average.toString();
+                    break;
+                case 'min':
+                    el.element.textContent = min.toString();
+                    break;
+                case 'max':
+                    el.element.textContent = max.toString();
+                    break;
+                default:
+                    break;
+            }
+        });
+    }
 }
-
-FilledData() {
-this.InputData1 = document.querySelector('#Data1');
-this.InputData2 = document.querySelector('#Data2');
-this.InputData3 = document.querySelector('#Data3');
-this.InputData4 = document.querySelector('#Data4');
-
-this.InputSUM = document.querySelector('#sum');
-this.InputAVG = document.querySelector('#avg');
-this.InputMIN = document.querySelector('#min');
-this.InputMAX = document.querySelector('#max');
-
-
-}
-
-watchInputValues() {
-  this.data1Input.addEventListener('input',() => this.computeData());
-  this.data2Input.addEventListener('input',() => this.computeData());
-  this.data3Input.addEventListener('input',() => this.computeData());
-  this.data4Input.addEventListener('input',() => this.computeData());
-}
-//DeleteField() {}
-
-//
