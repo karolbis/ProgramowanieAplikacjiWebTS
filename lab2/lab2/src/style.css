@@ -1,29 +1,23 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-}
-
-body {
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: #f5d2d2;
-  font-family: sans-serif;
-}
-
-main {
-  height: 100%;
+.keyContainer {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  overflow: hidden;
+  flex-wrap: wrap;
 }
 
-.drumkit-buttons {
+.audioKey {
   margin: 10px;
+  display: grid;
+  place-items: center;
+  background-color: pink;
+  color: black;
+  font-size: 42px;
+  font-weight: bold;
+  width: 100px;
+  height: 100px;
+}
+
+button {
+  margin: 10px;
+  background-color: rgb(145, 40, 70);
   color: white;
   font-size: 18px;
   padding: 10px;
@@ -32,91 +26,3 @@ main {
   border-radius: 5px;
   cursor: pointer;
 }
-
-
-.drumkit-buttons button {
-  width: 70px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
-  color: #ffffff;
-  border: none;
-  background-color: #111111;
-  text-transform: uppercase;
-}
-
-@keyframes keyAnim {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  to {
-    opacity: 0;
-    transform: scale(3);
-  }
-}
-
-.chanels {
-  width: 800px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1px;
-}
-
-.chanelContainer {
-  display: flex;
-  align-items: center;
-  gap: 1px;
-  width: 100%;
-}
-
-.recordBtn,
-.playBtn {
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  background: none;
-  border: 2;
-  position: relative;
-  outline: 0;
-  flex-shrink: 0;
-}
-
-.recordBtn::after {
-  position: absolute;
-  content: "Record";
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #c52424;
-  left: calc(30% - 6px);
-  top: calc(30% - 6px);
-}
-
-.playBtn::after {
-  position: absolute;
-  content: "Play";
-  width: 0;
-  height: 0;
-  border-top: 8px solid transparent;
-  border-left: 16px solid #00aa00;
-  border-bottom: 8px solid transparent;
-  left: calc(70% - 6px);
-  top: calc(70% - 7px);
-}
-
-.playBtn.stopBtn::after {
-  border: 7px solid #a57979;
-}
-
-
-
-
-
-
-
