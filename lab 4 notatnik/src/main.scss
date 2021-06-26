@@ -1,0 +1,84 @@
+.titleDiv {
+  width: 100%;
+  margin: auto;
+  font-size: 48px;
+  color: rgb(7, 7, 1);
+  padding: 50px;
+}
+
+.input-section {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 2;
+  justify-content: left;
+  align-items: left;
+  flex-wrap: wrap;
+  position: relative;
+  margin: auto;
+  padding: 20px;
+}
+
+.input-AddNote {
+  width: 100ch;
+  height: 5ch;
+  text-align: center;
+  background-color: rgb(151, 180, 129);
+  color: rgb(158, 105, 105);
+  border: 0.2px solid grey;
+}
+
+.input-AddButton {
+  width: 10ch;
+  height: 5ch;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.6rem;
+  background-color: rgb(160, 207, 128);
+  color: white;
+  border: 0.2px solid rgb(2, 0, 0);
+  padding: 2px;
+  margin: 10px auto 10px auto;
+}
+
+.tmp-content {
+  width: 100ch;
+  height: 15ch;
+  text-align: center;
+  background-color: rgb(82, 197, 98);
+  color: white;
+  border: 0.2px solid grey;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  position: relative;
+  width: 700px;
+  margin: auto;
+}
+
+.noteWind {
+  width: 250px;
+  height: 20ch;
+  text-align: center;
+  background-color: rgb(252, 252, 252);
+  color: rgb(3, 3, 3);
+  border: 0.2px solid grey;
+  margin: 20px;
+
+  h1 {
+    background-color: rgba(169, 169, 169, 0.3);
+    font-size: 1rem;
+    margin: 0;
+    padding: 10px;
+    height: 20%;
+  }
+  h2 {
+    font-size: 0.9rem;
+  }
+  h3 {
+    font-size: 0.7rem;
+  }
+}
